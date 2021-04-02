@@ -1,0 +1,144 @@
+jQuery(function($) {
+	
+	/*====== IMAGE LAZY LOAD EFFECT ======*/
+    function lazyImage() {
+		$('.lazy-thumb').one('inview', function() {
+			$(this).addClass('lazy-show');
+		});
+	}
+	lazyImage();
+
+	/*====== POST VIDEO ======*/
+	function evoVideo() {
+		var evoVlist = $('.evo-video-playlist .evo-post');
+
+		evoVlist.on('click', function() {
+	    	$(this).addClass('active-video').siblings().removeClass('active-video');
+		});
+
+		$(".evo-post-video").fitVids();
+	}
+	evoVideo();
+
+	/*====== ZOOM IMAGE ======*/
+	function evoZoomImage() {
+		$('a.evo-zoom-enable').magnificPopup({
+			type:'image',
+			gallery:{
+				enabled:true
+			},
+			closeOnContentClick: true,
+			midClick: true
+		});
+	}
+	evoZoomImage();
+
+	/*====== CATEGORY COLOR ======*/
+	function evoCatColor() {
+		$('.evo-cat-line .evo-post-cat').each(function(){
+			var catSpan = $(this).append('<span></span>');
+		});
+
+		$('.evo-cat-color').each(function(){
+			var catColor = $(this).attr('data-catcolor'),
+				catPer = $(this).find($('.evo-post-cat').find('span')),
+				catLink = $(this).find($('.evo-post-cat a')),
+				catButton = $(this).find($('.evo-read-more a')),
+				catImage = $(this).find($('.evo-cat-image .evo-image-hover span'));
+
+			catPer.css('background-color', catColor);
+			catLink.css('background-color', catColor);
+			catButton.css('border-color', catColor);
+			catImage.css('background-color', catColor);
+		});
+
+		$('.evo-title-hover').each(function(){
+			var catColor = $(this).attr('data-catcolor'),
+				catLink = $(this).find($('.evo-entry-title a'));
+
+			catLink.css('color', '#111');
+
+			$(this).find($('.evo-entry-title a')).mouseover(function() {
+				catLink.css('color', catColor);
+			}).mouseout(function() {
+				catLink.css('color', '#111');
+			});
+		});
+
+		var	catPageColor = $('.evo-category-page-title .evo-title').attr('data-color'),
+			catPageBg = $('.category .evo-header-background');
+
+		catPageBg.css('background-color', catPageColor);
+		$('.evo-category-page-title .evo-title').css('color', catPageColor);
+	}
+	evoCatColor();
+
+	/*====== VC Video Widget JS ======*/ 
+	$('.evo-video-playlist').on( 'click', 'a', function( event ) {
+		event.preventDefault();
+
+		var videoModule = $(this).closest('.evo-video-frame');
+		videoModule.find(".evo-loading").show();
+
+		//VC Parametreler
+		var postid = $(this).attr('id');
+		$.ajax({
+			url: themeajax.ajaxurl,
+			type: 'POST',
+			data: {
+	            action : 'garage_vc_video_ajax',
+	            postid : postid,
+	        },
+			success: function( result ) {
+				$(".evo-post-video").html(result);
+				evoVideo();
+			}
+		});
+	});
+
+	/*====== VC Post Pagination ======*/
+	$('.evo-post-body-ajax-wrapper').on('click', '.pagination a', function(e){
+		e.preventDefault();
+		var link = $(this).attr('href');
+		var mainContainer = $(".evo-post-body-ajax-wrapper");
+		var container = $(this).closest('.theme-ajax-pagination');
+		var itemID = container.attr("id");
+
+		container.find(".evo-loading").addClass('show');
+
+		var animateTop = $(this).closest('.theme-ajax-pagination').offset().top;
+
+		$('html, body').animate({
+			scrollTop: animateTop -100
+		}, 1000);
+
+		mainContainer.load(
+			link +' #'+ itemID, function() {
+				lazyImage();
+				evoCatColor()
+		});
+	});
+
+	/*====== Ajax Load More ======*/
+	if ($('#more-posts-wrapper-ajax .ajax-load-more').length) {
+	    $('#more-posts-wrapper-ajax').off().on('click', '.ajax-load-more a', function(e) {
+	        e.preventDefault();
+
+	        var parent = $(this).parents('#more-posts-wrapper-ajax').attr('id');
+	        parent = '#' + parent;
+	        var link = $(this).attr('href');
+
+	        $(parent+'#more-posts-wrapper-ajax').append('<div class="more-posts"></div>');
+	        $(parent).find('.ajax-load-more').replaceWith('<div class="evo-load-content"></div>');
+	        $(parent).find('.more-posts').load(link + ' '+ parent +' .evo-posts .evo-post, '+ parent +' .ajax-load-more', function() {
+	            $(parent).find('.more-posts .evo-post').hide().detach().appendTo(parent+' .evo-posts').fadeIn(500);
+	            $(parent).find('.more-posts .ajax-load-more').detach().appendTo(parent+' .evo-posts');
+
+	            $(parent).find('.more-posts').remove();
+	            $(parent).find('.evo-load-content').remove(); 
+	            lazyImage();
+	            evoCatColor()
+	        });
+	    });
+	}
+});

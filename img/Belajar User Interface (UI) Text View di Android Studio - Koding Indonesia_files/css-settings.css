@@ -1,0 +1,129 @@
+/*============================================================================
+  >> DEFAULT  SETTINGS
+  ============================================================================
+*/
+
+.evo-loader span:before, .evo-post-tags .evo-tags ul li a:hover, .evo-post-tags .evo-source a:hover, .evo-author-bio .evo-author-name a:hover, .comment-list li .comment-author a:hover, .entry-content blockquote:before, .evo-most-viewed-widget .evo-mv-number, .evo-footer-social ul li a:hover, .evo-trending-posts .evo-slider .slick-arrow:hover:before {
+	color: #01f4c8;/*THEME DEFAULT COLOR*/
+}
+
+.slick-dots li.slick-active button, .evo-carousel-b.dark .slick-dots li.slick-active button, .evo-cat-module-d .evo-modulle-inner, .evo-cat-module-g .evo-post-body , .evo-blog-post-e .evo-post-body-inner{
+	border-color: #01f4c8;/*THEME DEFAULT COLOR GELECEK !!!*/
+}
+
+.evo-slider:after {
+	border-top-color: #01f4c8;/*THEME DEFAULT COLOR GELECEK !!!*/
+}
+
+.evo-reading-post .evo-hide-read:hover a span, .evo-reading-post .evo-show-read:hover .evo-close:before, .evo-reading-post .evo-show-read:hover .evo-close:after, .evo-most-viewed-widget .evo-post:before, .evo-trending-close:hover .evo-close:before, .evo-trending-close:hover .evo-close:after {
+	background-color: #01f4c8!important;/*THEME DEFAULT COLOR GELECEK !!!*/
+}
+
+.evo-subscribe-widget .evo-widget-inner, .evo-tab-list a:before, .evo-tab-widget .evo-post-number {
+	background-color: #FF5245;/*SUBSCRIBE & TAB WIDGET BACKGROUND COLOR*/
+}
+
+.evo-review.review-point .evo-total-rating, .evo-review-bar-item span {
+	background-color: #ffd700;
+}
+
+.evo-review-rating-stars {
+	color: #ffd700;
+}
+
+
+/*============================================================================
+  >> HEADER  SETTINGS
+  ============================================================================
+*/
+.evo-quick-buttons > * > a:hover, .evo-social-button:hover .evo-social-dropdown-icon, .evo-topbar-menu ul li a:hover, .evo-topbar-menu ul li:hover > a {
+    color: #01f4c8;/*TOPBAR LINK HOVER COLOR*/
+}
+
+.evo-main-menu ul li > a:hover, .evo-main-menu ul li:hover > a, .evo-menu-light .evo-main-menu > ul > li > a:hover, .evo-menu-light .evo-main-menu > ul > li:hover > a {
+    color: #01f4c8!important;/*MAIN MENU LINK HOVER COLOR*/
+}
+
+.evo-header-background {
+	background-color: #01f4c8;/*HEADER BACKGROUND COLOR*/
+}
+
+.evo-logo-header {
+	padding-top: 50px;/*HEADER LOGO COLUMN PADDING*/
+	padding-bottom: 50px;/*HEADER LOGO COLUMN PADDING*/
+}
+
+
+/*============================================================================
+  >> POST  SETTINGS
+  ============================================================================
+*/
+.evo-post-meta > *, .evo-post-meta > * > a {
+    color: #999;/*POST META COLOR*/
+}
+
+.evo-author > a {
+    color: #111;/*POST META AUTHOR COLOR*/
+}
+
+.evo-post .evo-entry-title a:hover {
+	color: #01f4c8;/*POST TITLE HOVER COLOR*/
+}
+
+
+/*============================================================================
+  >> TYPOGRAPHY SETTINGS
+  ============================================================================
+*/
+body {
+	font-family: 'Work Sans', sans-serif;/*BODY FONT*/
+	font-size: 14px;/*BODY FONT SIZE*/
+	font-weight: 400;/*BODY FONT WEIGHT*/
+	letter-spacing: 0;/*BODY LETTER SPACING*/
+}
+
+.evo-logo-text {
+	font-family: 'Work Sans', sans-serif;/*LOGO FONT*/
+    font-size: 70px;/*LOGO FONT SIZE*/
+    font-weight: 900;/*LOGO FONT WEIGHT*/
+    letter-spacing: 0;/*LOGO LETTER SPACING*/
+}
+
+.evo-main-menu > ul > li > a {
+	font-family: 'Work Sans', sans-serif;/*MAIN MENU FONT*/
+	font-size: 14px;/*MAIN MENU FONT SIZE*/
+	font-weight: 700;/*MAIN MENU FONT WEIGHT*/
+	letter-spacing: 0;/*MAIN MENU LETTER SPACING*/
+}
+
+.evo-topbar-menu ul li a {
+	font-family: 'Work Sans', sans-serif;/*TOPBAR MENU FONT*/
+	font-size: 12px;/*TOPBAR MENU FONT SIZE*/
+	font-weight: 700;/*TOPBAR MENU FONT WEIGHT*/
+	letter-spacing: 0;/*TOPBAR MENU LETTER SPACING*/
+}
+
+.evo-title {
+	font-family: 'Merriweather', serif;/*MODULE TITLE FONT*/
+	font-weight: 700;/*MODULE TITLE FONT WEIGHT*/
+	letter-spacing: 0;/*MODULE TITLE LETTER SPACING*/
+}
+
+.evo-entry-title {
+	font-weight: 700;/*ENTRY TITLE FONT WEIGHT*/
+	letter-spacing: -0.3px;/*ENTRY TITLE LETTER SPACING*/
+}
+
+.evo-post-meta > * {
+	font-family: 'Work Sans', sans-serif;/*POST META FONT*/
+	font-size: 12px;/*POST META FONT SIZE*/
+	font-weight: 600;/*POST META FONT WEIGHT*/
+	letter-spacing: 0;/*ENTRY TITLE LETTER SPACING*/
+}
+
+.entry-content p {
+	font-family: 'Merriweather', serif;/*ENTRY TITLE FONT*/
+	font-size: 15px;/*ENTRY TITLE FONT SIZE*/
+	font-weight: 400;/*ENTRY TITLE FONT WEIGHT*/
+	letter-spacing: 0;/*ENTRY TITLE LETTER SPACING*/
+}
